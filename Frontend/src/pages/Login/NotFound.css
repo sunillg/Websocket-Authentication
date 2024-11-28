@@ -1,0 +1,52 @@
+
+  .fullpage {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(1, 116, 112);
+    background-image: url('../../assets/404-status-code.png');
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; 
+    height: 100vh; 
+}
+
+  .main {
+    max-width: 500px;
+    width: 100%;
+   
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    font-size: 96px;
+    margin: 0;
+    color: #ff6f61;
+    font-weight: bold;
+  }
+  
+  .text {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #555;
+  }
+  
+  .button {
+    background-color: #024daf;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: none;
+    margin-top: 80%;
+    font-size: 16px;
+    position: absolute; 
+    bottom: -650px;
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+  
+  .button:hover {
+    background-color: #012964;
+  }

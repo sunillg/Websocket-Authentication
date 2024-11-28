@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:suriya@05@localhost:5432/refine_project/public"
+}
+
+model Employees {
+  id          Int      @id @default(autoincrement())
+  employee_ID String   @unique
+  name        String
+  email       String   @unique
+  role        String?
+  tech        String[] @db.Text
+}
+model User {
+  id           Int       @id @default(autoincrement())
+  username     String    @unique
+  email        String    @unique
+  mobileNumber String    @unique @default("1234567890")
+  password     String
+  rooms        Room[]    @relation("UserRooms")
+  roleId       Int        @default()
+  role         Role      @relation(fields: [roleId], references: [id]) 
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[]
+}
+
+model Room {
+  id                Int      @id @default(autoincrement())
+  roomname          String   @unique
+  senderMobileNumber String
+  receiverMobileNumber String
+  messages          Message[]
+  users             User[]   @relation("UserRooms")
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  roomId     Int
+  sender     String
+  content    String
+  room       Room     @relation(fields: [roomId], references: [id])
+  fileUrl    String?
+  fileType   String?
+  createdAt  DateTime @default(now())
+  modifiedAt DateTime @updatedAt
+}
+
+
